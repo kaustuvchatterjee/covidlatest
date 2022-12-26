@@ -50,4 +50,4 @@ deaths = dom.xpath(xpath)[0].strip()
 print(deaths)
 
 df = df.append({'obsDate':dt, 'active': active, 'recovered':recovered, 'deaths':deaths}, ignore_index=True)
-df.to_csv('covid_data.csv')
+df.to_csv('covid_data.csv', index=False)
