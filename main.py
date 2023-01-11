@@ -25,18 +25,18 @@ for i in range(len(df)-1):
 fig, ax = plt.subplots(2,1, figsize=(12,10), sharex=True)
 
 ax[0].plot(df['obsDate'][1:],newcases, label='New Cases', color='r')
-ax[0].text(df['obsDate'][-1],newcases[-1], str(newcases)
+ax[0].text(df.iloc[-1]['obsDate'],newcases[-1], str(newcases[-1]))
 ax[0].plot(df['obsDate'][1:],newrec, label='New Recoveries', color='g')
-ax[0].text(df['obsDate'][-1],newrec[-1], str(newrec)
-ax[0].plot(df['obsDate'][1:],newdeaths, label='New Deathss', color='k')
-ax[0].text(df['obsDate'][-1],newdeaths[-1], str(newdeaths)
+ax[0].text(df.iloc[-1]['obsDate'],newrec[-1], str(newrec[-1]))
+ax[0].plot(df['obsDate'][1:],newdeaths, label='New Deaths', color='k')
+ax[0].text(df.iloc[-1]['obsDate'],newdeaths[-1], str(newdeaths[-1]))
 ax[0].legend()
 ax[0].grid()
 ax[0].set_title('New Cases/Recoveries/Deaths')
 ax[0].set_ylim(bottom=0)
 
 ax[1].plot(df['obsDate'],df['active'], label='New Recoveries', color='r')
-ax[1].text(df['obsDate'][-1],df['active'], str(df['active'])
+ax[1].text(df.iloc[-1]['obsDate'],df.iloc[-1]['active'], str(df.iloc[-1]['active']))
 
 ax[1].grid()
 ax[1].set_title('Active Cases')
@@ -68,5 +68,4 @@ formatter.offset_formats = ['',
 ax[1].xaxis.set_major_locator(locator)
 ax[1].xaxis.set_major_formatter(formatter)
 fig.tight_layout()
-
 st.pyplot(fig)
