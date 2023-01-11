@@ -36,7 +36,7 @@ ax[0].set_title('New Cases/Recoveries/Deaths')
 ax[0].set_ylim(bottom=0)
 
 ax[1].plot(df['obsDate'],df['active'], label='New Recoveries', color='r')
-ax[0].text(df['obsDate'][-1],df['active'], str(df['active'])
+ax[1].text(df['obsDate'][-1],df['active'], str(df['active'])
 
 ax[1].grid()
 ax[1].set_title('Active Cases')
