@@ -49,5 +49,7 @@ xpath = '//*[@id="site-dashboard"]/div/div/div[1]/div[2]/ul/li[3]/strong[2]/text
 deaths = dom.xpath(xpath)[0].strip()
 print(deaths)
 
-df = df.append({'obsDate':dt, 'active': active, 'recovered':recovered, 'deaths':deaths}, ignore_index=True)
+# df = df.append({'obsDate':dt, 'active': active, 'recovered':recovered, 'deaths':deaths}, ignore_index=True)
+df1 = pd.DataFrame({'obsDate':dt, 'active': active, 'recovered':recovered, 'deaths':deaths})
+pd.concat(df,df1)
 df.to_csv('covid_data.csv', index=False)
