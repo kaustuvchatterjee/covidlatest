@@ -11,6 +11,7 @@ from datetime import datetime
 from bs4 import BeautifulSoup
 from lxml import etree
 import requests
+import re
 
 # read csv file
 df = pd.read_csv('covid_data.csv')
@@ -29,8 +30,11 @@ dom = etree.HTML (str(py_soup))
 xpath = '//*[@id="site-dashboard"]/div/div/div[1]/div[1]/h5/span/text()[1]'
 # dom.xpath ('//*[@id="firstHeading"]')[0].text
 dt = dom.xpath(xpath)[0].strip()
-dt = dt.split(' ')
-dt = dt[3]+'-'+dt[4]+'-'+dt[5]+' '+dt[6]
+dt = dom.xpath(xpath)[0].strip()
+reg=r'[0-9]{2}\s+(\w+)+\s[0-9]{4}, [0-9]{2}:[0-9]{2}'
+dt = re.search(reg,dt)[0]
+# dt = dt.split(' ')
+# dt = dt[3]+'-'+dt[4]+'-'+dt[5]+' '+dt[6]
 dt = datetime.strptime(dt,'%d-%B-%Y, %H:%M')
 print(dt)
 
