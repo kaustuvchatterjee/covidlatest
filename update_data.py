@@ -35,7 +35,7 @@ reg=r'[0-9]{2}\s+(\w+)+\s[0-9]{4}, [0-9]{2}:[0-9]{2}'
 dt = re.search(reg,dt)[0]
 # dt = dt.split(' ')
 # dt = dt[3]+'-'+dt[4]+'-'+dt[5]+' '+dt[6]
-dt = datetime.strptime(dt,'%d-%B-%Y, %H:%M')
+dt = datetime.strptime(dt,'%d %B %Y, %H:%M')
 print(dt)
 
 #Active Cases
