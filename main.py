@@ -15,10 +15,14 @@ df['deaths'] = pd.to_numeric(df['deaths'])
 newcases, newdeaths, newrec = [], [], []
 for i in range(len(df)-1):
     numcases = (df.iloc[i+1]['active'] - df.iloc[i]['active']) + (df.iloc[i+1]['recovered'] - df.iloc[i]['recovered']) + (df.iloc[i+1]['deaths'] - df.iloc[i]['deaths'])
+    if numcases > 15000:
+        numcases = np.nan
     newcases.append(numcases)
     numdeaths = df.iloc[i+1]['deaths'] - df.iloc[i]['deaths']
     newdeaths.append(numdeaths)
     numrec = df.iloc[i+1]['recovered'] - df.iloc[i]['recovered']
+    if newrec > 20000:
+        newrec = np.nan
     newrec.append(numrec)
     
 # Plot
