@@ -21,8 +21,8 @@ for i in range(len(df)-1):
     numdeaths = df.iloc[i+1]['deaths'] - df.iloc[i]['deaths']
     newdeaths.append(numdeaths)
     numrec = df.iloc[i+1]['recovered'] - df.iloc[i]['recovered']
-    if newrec > 20000:
-        newrec = np.nan
+    if numrec > 20000:
+        numrec = np.nan
     newrec.append(numrec)
     
 # Plot
