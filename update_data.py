@@ -20,7 +20,7 @@ df['obsDate'] = pd.to_datetime(df['obsDate'])
 # scrape MOHFW site
 py_url = "https://www.mohfw.gov.in/"
 py_headers = ({'User-Agent':
-'Safari/537.36',\
+'Mozilla/5.0',\
 'Accept-Language': 'en-US, en;q=0.5'})
 py_wpage = requests.get (py_url, headers=py_headers)
 py_soup = BeautifulSoup (py_wpage.content, "html.parser")
